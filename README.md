@@ -3,14 +3,14 @@
 	RainbowHash Supports multiple Hash Such as md5, sha1, sha223, sha3_384, blake2s, blake2b, sha384, sha3_224, sha512, sha256, sha3_256, ntlm.
 	It Generates Rainbow Table and build a Sqlite3 Database in Current Directory and Match Hash With Rainbow Table Hashes.
 	RainbowHash also Supports Prepend and Append Salt Value.
-	RainbowHash can be used as Intractive Mode awa Single Lineer command
-	RainbowHash directly recover Matched Hash from Rainbow Table Database whis is created inside Local Directory (easy to share)
+	RainbowHash can be used as Interactive Mode awa Single Lineer command
+	RainbowHash directly recover Matched Hash from Rainbow Table Database which is created inside Local Directory (easy to share)
 
-	No need to Specify Hash Alogorithem type.
+	No need to Specify Hash Alogorithm type.
 	No need to Make Rainbow table of same word or file anymore.
 
 # Usage
-# Intractive Mode Usage
+# Interactive Mode Usage
 
 	root@CK00:~/RainbowHash# python3.7 RainbowHash.py
 
@@ -158,3 +158,19 @@
 
     Detected ALGORITHM (md5) :  f9defaa0ffd24ac8258f6abcf91ad8d9 
 	word :  RainbowMe
+
+# Known issue
+
+While running the program, you may encounter an error about md4 compatibility.
+
+In order to run the program, you have to add the following to your openssl.cnf file :
+
+[provider_sect]
+default = default_sect
+legacy = legacy_sect
+
+[default_sect]
+activate = 1
+
+[legacy_sect]
+activate = 1
