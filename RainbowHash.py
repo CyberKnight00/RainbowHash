@@ -37,6 +37,9 @@ sql.commit()
 
 
 def fetch_from_database(ha_sh):
+
+    ha_sh = ha_sh.lower()
+
     cursor = sql.execute('select * from Hashes_Table')
     sql.commit()
     for row in cursor:
@@ -274,7 +277,7 @@ if len(sys.argv) < 2:
             print('     example : word RainbowMe')
             continue
 
-        if inp is not '':
+        if inp != '':
             inp = inp.split()
 
             if inp[0] == 'file':
@@ -333,7 +336,7 @@ if len(sys.argv) < 2:
                         print('     example : salt hash value')
                         continue
                     
-                    if inp1 is not '':
+                    if inp1 != '':
                         inp1 = inp1.split()
                         if inp1[0] == 'app':
                             post = inp1[1]
@@ -341,7 +344,7 @@ if len(sys.argv) < 2:
                             salt = inp1[1]
                         else:
                             print('Unknown Command')
-                    elif inp1 is '':
+                    elif inp1 == '':
                         continue
                     else:
                         print('Unknown Command')
